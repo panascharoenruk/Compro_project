@@ -21,10 +21,4 @@ amuro
 ray
 amuro
 ray
-2000.000000
-6
-char
-asnable
-char
-1234
-0.000000
+12000.000000

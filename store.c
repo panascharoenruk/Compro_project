@@ -58,8 +58,8 @@ int transcation(uid)
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice;
     float lbalance, deposit, withdrawn;
-    log = fopen("user.txt", "r");
-    new_rec = fopen("new_user.txt", "a");
+    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
+    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
     system("COLOR B");
     printf("    _________________________________________________________\n"
            "          ____              _    _                  \n"
@@ -126,8 +126,8 @@ int shopping(uid)
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice, items, amount;
     float lbalance, deposit, withdrawn;
-    log = fopen("user.txt", "r");
-    new_rec = fopen("new_user.txt", "a");
+    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
+    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
     system("COLOR B");
     printf("    _________________________________________________________ \n"
            "         _____ _                       _                      \n"
@@ -320,8 +320,8 @@ void bill(uid){ /* Bill after shop */
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice, items, amount;
     float lbalance, deposit, withdrawn;
-    log = fopen("user.txt", "r");
-    new_rec = fopen("new_user.txt", "a");
+    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
+    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
     int i;
     printf("                                                             _______________ \n"
            "       _____          _       ____  _ _ _                   |               |\n"
@@ -347,80 +347,13 @@ void bill(uid){ /* Bill after shop */
     int select = getch();
     if(select == 13){
         system("CLS");
-        charge_cal(uid);
     }else{
         system("CLS");
         bill(uid);
     }
 }
 
-int charge_cal(uid){
-    char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
-    int luid, choice;
-    float lbalance, deposit, withdrawn;
-    log = fopen("user.txt", "r");
-    new_rec = fopen("new_user.txt", "a");
-    system("COLOR B");
-    printf("    _______________________________________________\n"
-           "           _____ _                                 \n"
-           "          / ____| |                                \n"
-           "         | |    | |__   __ _ _ __   __ _  ___      \n"
-           "         | |    | '_ \\ / _` | '_ \\ / _` |/ _ \\  \n"
-           "         | |____| | | | (_| | | | | (_| |  __/     \n"
-           "          \\_____|_| |_|\\__,_|_| |_|\\__, |\\___| \n"
-           "                                    __/ |          \n"
-           "                                    |___/          \n"
-           "    _______________________________________________\n");
-           int price,money,method,way;
-            printf("Current Price : %dB\n", price_buy);
-            printf("Balance : %dB", balance);
-            printf("\nConfirm Payment [1] Yes [2] No : ");
-            scanf("%d", &method);
-    while (fscanf(log, "%d", &luid) && fscanf(log, "%s", lfirstname) && fscanf(log, "%s", llastname) && fscanf(log, "%s", lusername) && fscanf(log, "%s", lpassword) && fscanf(log, "%f", &lbalance))
-    {
-        if(feof(log)){
-            break;
-        }
-        if(uid == luid)
-        {
 
-            if(price_buy > lbalance){
-        int ways;
-        system("color c");
-        printf("\nYou can\'t pay this price!\n");
-        printf("What do you want to do? [1] Go to Banking [2] Go to Option : ");
-        scanf("%d", &ways);
-        switch(ways){
-            case 1 :
-                system("CLS");
-                fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
-                transcation(uid);
-                continue;
-            case 2 :
-                system("CLS");
-                fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
-                mainmenu(uid);
-                continue;
-            default :
-                system("CLS");
-                fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
-                charge_cal(uid);
-                continue;
-        }
-
-
-        } else {
-            fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
-        }
-    }
-    fclose(log);
-    fclose(new_rec);
-    remove("user.txt");
-    rename("new_user.txt","user.txt");
-    system("CLS");
-    mainmenu(uid);
-
-}
 
 int mainmenu(uid)
 {
@@ -452,11 +385,11 @@ int mainmenu(uid)
 }
 int registe()
 {
-    log = fopen("user.txt", "a");
-    id = fopen("id.txt", "r");
+    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "a");
+    id = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\id.txt", "r");
     int uid;
     FILE *id2;
-    id2 = fopen("id2.txt", "w");
+    id2 = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\id2.txt", "w");
     struct login l;
     printf("    _____________________________________________________   \n"
            "                                           _                \n"
@@ -491,7 +424,7 @@ int login()
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid;
     float lbalance;
-    log = fopen("user.txt", "r");
+    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
     printf("    _____________________________________________________   \n"
            "                                           _                \n"
            "            /\\                            | |              \n"
