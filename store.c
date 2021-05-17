@@ -58,8 +58,8 @@ int transcation(uid)
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice;
     float lbalance, deposit, withdrawn;
-    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
-    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
+    log = fopen("user.txt", "r");
+    new_rec = fopen("new_user.txt", "a");
     system("COLOR B");
     printf("    _________________________________________________________\n"
            "          ____              _    _                  \n"
@@ -126,8 +126,8 @@ int shopping(uid)
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice, items, amount;
     float lbalance, deposit, withdrawn;
-    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
-    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
+    log = fopen("user.txt", "r");
+    new_rec = fopen("new_user.txt", "a");
     system("COLOR B");
     printf("    _________________________________________________________ \n"
            "         _____ _                       _                      \n"
@@ -320,8 +320,8 @@ void bill(uid){ /* Bill after shop */
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice, items, amount;
     float lbalance, deposit, withdrawn;
-    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
-    new_rec = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\new_user.txt", "a");
+    log = fopen("user.txt", "r");
+    new_rec = fopen("new_user.txt", "a");
     int i;
     printf("                                                             _______________ \n"
            "       _____          _       ____  _ _ _                   |               |\n"
@@ -385,11 +385,11 @@ int mainmenu(uid)
 }
 int registe()
 {
-    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "a");
-    id = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\id.txt", "r");
+    log = fopen("user.txt", "a");
+    id = fopen("id.txt", "r");
     int uid;
     FILE *id2;
-    id2 = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\id2.txt", "w");
+    id2 = fopen("id2.txt", "w");
     struct login l;
     printf("    _____________________________________________________   \n"
            "                                           _                \n"
@@ -424,7 +424,7 @@ int login()
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid;
     float lbalance;
-    log = fopen("C:\\Users\\Acer\\Downloads\\Compressed\\Compro-project\\user.txt", "r");
+    log = fopen("user.txt", "r");
     printf("    _____________________________________________________   \n"
            "                                           _                \n"
            "            /\\                            | |              \n"
