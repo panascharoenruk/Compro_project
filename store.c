@@ -49,7 +49,7 @@ void load(){ /* Loading Start Screen */
     }
     Sleep(500);
     system("CLS");
-    printf("                               [ Deposited successfully! ]");
+    printf("                               [ successfully! ]");
     Sleep(500);
     system("CLS");
 }
@@ -78,6 +78,7 @@ int transcation(uid)
         }
         if(uid == luid)
         {
+            printf("Current Balance : %f", lbalance);
             printf("\n\nDo you want to\n1.Deposit\n2.Withdraw?\n\nEnter your choice(1 for deposit and 2 for withdraw):");
             scanf("%d",&choice);
             if (choice==1)
@@ -86,7 +87,8 @@ int transcation(uid)
                     scanf("%f",&deposit);
                     lbalance+=deposit;
                     fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
-                    load();
+
+                    continue;
                 }
             else if(choice == 2)
                 {
@@ -114,11 +116,13 @@ int transcation(uid)
             fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
         }
     }
+
     fclose(log);
     fclose(new_rec);
     remove("user.txt");
     rename("new_user.txt","user.txt");
     system("CLS");
+    load();
     mainmenu(uid);
 }
 int shopping(uid)
@@ -161,25 +165,14 @@ int shopping(uid)
             }
         if(luid == uid)
             {
+                printf("Balance : %.2f B\n", lbalance);
+                printf("Current Price : %d B\n", price_buy);
                 if(lbalance == 0 || price_buy > lbalance){
-        int method;
-        system("color c");
-        printf("You can\'t buy anything! You need to have some money in your balance.\n");
-        printf("What do you want to do? [1] Go to Banking [2] Go to Option : ");
-        scanf("%d", &method);
-        switch(method){
-            case 1 :
-                system("CLS");
-                transcation(uid);
-                break;
-            case 2 :
-                system("CLS");
-                mainmenu(uid);
-                break;
-            default :
-                system("CLS");
-                shopping(uid);
-        }
+                    int method;
+                    system("color c");
+                    printf("You can\'t buy anything! You need to have some money in your balance.\n");
+                    break;
+
     }else{
         printf("What do you want : ");
         scanf("%d", &items);
@@ -292,11 +285,14 @@ int shopping(uid)
         }
     }
     end_shop(uid);
+            } else {
+                continue;
             }
     }
-
-
+    fclose(log);
+    fclose(new_rec);
 }
+
 
 int end_shop(uid){ /* Do after shop */
     int method;
@@ -309,6 +305,8 @@ int end_shop(uid){ /* Do after shop */
         case 2 :
             system("CLS");
             bill(uid);
+            fclose(log);
+            fclose(new_rec);
             break;
         default :
             system("CLS");
@@ -320,8 +318,6 @@ void bill(uid){ /* Bill after shop */
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
     int luid, choice, items, amount;
     float lbalance, deposit, withdrawn;
-    log = fopen("user.txt", "r");
-    new_rec = fopen("new_user.txt", "a");
     int i;
     printf("                                                             _______________ \n"
            "       _____          _       ____  _ _ _                   |               |\n"
@@ -347,10 +343,69 @@ void bill(uid){ /* Bill after shop */
     int select = getch();
     if(select == 13){
         system("CLS");
+        charge_cal(uid);
     }else{
         system("CLS");
         bill(uid);
     }
+}
+
+int charge_cal(uid)
+{
+
+    char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
+    int luid, choice;
+    float lbalance, deposit, withdrawn;
+    log = fopen("user.txt", "r");
+    new_rec = fopen("new_user.txt", "a");
+    system("COLOR B");
+    printf("    _______________________________________________\n"
+           "           _____ _                                 \n"
+           "          / ____| |                                \n"
+           "         | |    | |__   __ _ _ __   __ _  ___      \n"
+           "         | |    | '_ \\ / _` | '_ \\ / _` |/ _ \\  \n"
+           "         | |____| | | | (_| | | | | (_| |  __/     \n"
+           "          \\_____|_| |_|\\__,_|_| |_|\\__, |\\___| \n"
+           "                                    __/ |          \n"
+           "                                    |___/          \n"
+           "    _______________________________________________\n");
+    while (fscanf(log, "%d", &luid) && fscanf(log, "%s", lfirstname) && fscanf(log, "%s", llastname) && fscanf(log, "%s", lusername) && fscanf(log, "%s", lpassword) && fscanf(log, "%f", &lbalance))
+    {
+        if(feof(log)){
+            break;
+        }
+        if(uid == luid)
+        {
+            printf("Current Balance : %.2f", lbalance);
+                    if(lbalance < price_buy)
+                        {
+                            system("COLOR C");
+                            printf("You don't have enough money\n");
+                            fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
+                            system("pause");
+                            system("CLS");
+
+                            continue;
+                        }
+                    else
+                        {
+                        lbalance-=price_buy;
+                        fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
+                        printf("\n\nWithdrawn successfully!\n");
+                        }
+        }else {
+            fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
+        }
+
+    }
+    fclose(log);
+    fclose(new_rec);
+    remove("user.txt");
+    rename("new_user.txt", "user.txt");
+    system("CLS");
+    load();
+    mainmenu(uid);
+
 }
 
 
@@ -422,7 +477,7 @@ int registe()
 int login()
 {
     char username[20], password[20], lusername[20], lpassword[20], lfirstname[100], llastname[100];
-    int luid;
+    int luid, choice;
     float lbalance;
     log = fopen("user.txt", "r");
     printf("    _____________________________________________________   \n"
@@ -448,10 +503,21 @@ int login()
             mainmenu(luid);
             break;
         } if(feof(log)) {
+            system("color c");
             printf("Please enter correct UserID and Password\n");
-            system("pause");
-            system("CLS");
-            break;
+            printf("[1]Try again [2]Register\n");
+            scanf("%d", choice);
+            if(choice == 1)
+            {
+                system("CLS");
+                login();
+            }
+            else{
+                system("CLS");
+                registe();
+            }
+
+
         }
     }
     fclose(log);
