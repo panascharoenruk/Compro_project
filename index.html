@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Store</title>
+    <style>
+        h1,h2 {color: black;}
+        p {margin-top: 1ch;margin-bottom: 1ch;color: black;}
+        .nav-link {color: white;}
+        header {background-color: tomato;}
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand flex-column flex-md-row bd-navbar">
+      
+        <div class="navbar-nav-scroll">
+          <ul class="navbar-nav bd-navbar-nav flex-row">
+            <li class="nav-item">
+              <a class="nav-link " href="/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/docs/4.0/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/docs/4.0/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">How to use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://themes.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank" rel="noopener">Documentaion</a>
+            </li>
+          </ul>
+        </div>
+    </header>
+    
+    <div class="container-fluid" style="background-color: white; height: auto;">
+        <div class="row flex-xl-nowrap">
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+                <h1 class="bd-title" id="content">Download</h1>
+                <p class="bd-lead">สามารถโหลดแอพพลิเคชั่นได้จาก<a href="store.exe" download>ที่นี่</a></p>
+                <h2 id="examples" style="margin-top: 2ch;">Documentaion</h2>
+                <p>โปรแกรม store เป็นโปรแกรมที่คล้ายกับร้านค้าออนไลน์ โดยจะต้องทำการสมัครสมาชิกเข้าสู่ระบบเสียก่อนโดยผู้ใช้งานจะต้องทำการฝากเงินเพื่อซิ้อของ
+                    และสามารถถอนเงินที่ฝากไว้ออกมาได้อีกด้วย เมื่อซื้อของตามใจอยากแล้วจะคำนวณราคาทั้งหมดและแน่นอนต้องมี VAT7% ยังไงก็ต้องมีนะครับไม่มีไม่ได้
+                    หากจ่ายเงินเสร็จแล้วระบบจะหักเงินออกจากบัญชีของคุณอัตโนมัติ
+                </p>
+                <p>
+                    วิธีการใช้งานไม่ยากเลยใช่ไหมครับ แน่นอนว่าตัวโปรแกรมนี้ยังสามารถนำไปพัฒนาต่อได้อีก แล้วโปรแกรมนี้ยังเป็นแนวทางของคนที่ต้องการศึกษาภาษาซีได้อีกด้วย
+                    เพราะโปรแกรมตัวนี้เกิดขึ้นจากการทำงานของภาษาซี สำหรับผู้ที่สนใจในการเขียนโปรแกรมนอกจากจะได้ซื้อของแล้วยังสามารถดูโครงสร้างของ code ผ่านตัวโปรแกรมได้อีกด้วย
+                    ส่วนวิธีใช้งานโดยระเอียดแบบเห็นภาพจะอยู่ในหัวข้อ How to use นะครับ
+                </p>
+                <h2 id="examples" style="margin-top: 2ch;">How to use</h2>
+                <p>โดยเมื่อเปิดโปรแกรม Store มาในหน้าแรกจะให้ทำการสมัครสมาชิก หรือทำการเข้าระบบ</p>
+                <img src="1.png" style="width:100%;">
+                <p>ในหน้าสมัครสมาชิกเมื่อเข้ามาแล้ว จะแสดงรหัสไอดี แล้วจะให้กรอกชื่อ นามสกุล username password</p>
+                <img src="2.png" style="width:100%;">
+                <p>เมื่อกดปุ่มอะไรก็ตามจะเข้ามาสู่หน้า เข้าระบบ ให้กรอก username และ password ให้เรียบร้อย</p>
+                <img src="3.png" style="width:100%;">
+                <p>เมื่อเข้าระบบสำเร็จแล้วจะทำการไปหน้า เมนู และให้เลือกว่าจะใช้ระบบไหน ในกรณีนี้จะกด 2 แล้วไปหน้า Banking</p>
+                <img src="4.png" style="width:100%;">
+                <p>กด 1 เพื่อฝากเงินกด 2 เพื่อถอนเงินหลังจากนั้นให้ระบุจำนวนเงิน</p>
+                <img src="5_1.png" style="width:100%;">
+                <p>ผลลัพธ์เมื่อทำรายการเสร็จสิ้น</p>
+                <img src="5_2.png" style="width:100%;">
+                <p>การถอนเงินจะทำให้จำนวนเงินนั้นลดลง</p>
+                <img src="6.png" style="width:100%;">
+                <p>หน้า shopping เมื่อเข้ามาจะใก้หรอกเลขของสินค้าที่จะซื้อ แล้วจะให้กรอกจำนวน เมื่อกรอกเสร็จระบบจะถามว่า จะซื้อเพิ่มหรือ คิดเงิน</p>
+                <img src="7.png" style="width:100%;">
+                <p>เมื่อกดคิดเงินจะเด้งเข้ามาหน้าใบเสร็จ มีรายการสินค้าที่ซื้อ ราคารวม + ราคารวม vat7%</p>
+                <img src="8.png" style="width:100%;">
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
