@@ -1,5 +1,5 @@
 # Computer Programming Project 2021
-Store online by quality square
+Store online by quality squad
 <br>
 ## บทคัดย่อ (Abstract)
 โปรแกรมที่ถูกสร้างขึ้นมาเพื่อความสะดวกในการจับจ่ายซื้อของในช่วงสถานการณ์การแพร่ระบาดของ Covid-19
