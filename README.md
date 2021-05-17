@@ -17,7 +17,7 @@ Store online by quality squad
 ![image](https://github.com/panascharoenruk/Compro_project/blob/main/Picture/5_1.png)
 ระบุจำนวนเงินที่ต้องการฝากเงิน จำนวนเงินใน [user.txt](https://github.com/panascharoenruk/Compro_project/blob/main/new_user.txt) ก็จะเพิ่มขึ้น
 ![image](https://github.com/panascharoenruk/Compro_project/blob/main/Picture/6.png)
-ระบุจำนวนเงินที่ต้องการถอน จำนวนเงินใน user.txt ก็จะลดลง
+ระบุจำนวนเงินที่ต้องการถอน จำนวนเงินใน [user.txt](https://github.com/panascharoenruk/Compro_project/blob/main/new_user.txt) ก็จะลดลง
 ![image](https://github.com/panascharoenruk/Compro_project/blob/main/Picture/7.png)
 หน้าแสดงการซื้อขาย แสดงสินค้าและราคาสินค้าที่เราสามารถซื้อได้ กรอกหมายเลขสินค้าและจำนวนที่ต้องการ
 ![image](https://github.com/panascharoenruk/Compro_project/blob/main/Picture/8.png)
