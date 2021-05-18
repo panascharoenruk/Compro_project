@@ -179,6 +179,8 @@ int shopping(uid)
     }
     if(items == 0){
         system("CLS");
+        fclose(log);
+            fclose(new_rec);
         end_shop(uid);
     }else if(items > 12){
         if(items == 99){
@@ -187,6 +189,8 @@ int shopping(uid)
         }else{
             system("color c");
             printf("Out of range!");
+            fclose(log);
+            fclose(new_rec);
             end_shop(uid);
         }
     }else{
@@ -280,10 +284,14 @@ int shopping(uid)
                 count_eiei++;
                 break;
             case 0 :
+                fclose(log);
+            fclose(new_rec);
                 end_shop(uid);
                 break;
         }
     }
+    fclose(log);
+    fclose(new_rec);
     end_shop(uid);
             } else {
                 continue;
@@ -304,9 +312,10 @@ int end_shop(uid){ /* Do after shop */
             break;
         case 2 :
             system("CLS");
-            bill(uid);
             fclose(log);
             fclose(new_rec);
+            bill(uid);
+
             break;
         default :
             system("CLS");
@@ -342,6 +351,8 @@ void bill(uid){ /* Bill after shop */
     printf("Press Enter To Continue .....\n");
     int select = getch();
     if(select == 13){
+        fclose(log);
+        fclose(new_rec);
         system("CLS");
         charge_cal(uid);
     }else{
@@ -379,6 +390,7 @@ int charge_cal(uid)
             printf("Current Balance : %.2f", lbalance);
                     if(lbalance < price_buy)
                         {
+                            price_buy = 0;
                             system("COLOR C");
                             printf("You don't have enough money\n");
                             fprintf(new_rec,"%d\n%s\n%s\n%s\n%s\n%f\n", luid, lfirstname, llastname, lusername, lpassword, lbalance);
@@ -398,6 +410,7 @@ int charge_cal(uid)
         }
 
     }
+    price_buy = 0;
     fclose(log);
     fclose(new_rec);
     remove("user.txt");
